@@ -18,7 +18,7 @@ public class AddPlace
 		// then validate the response
 		// resourse and method will always go to when()
 		// we can validate in body as well using 
-		given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
+		given().relaxedHTTPSValidation().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
 		.body(PayLoad.jsonPayload())
 		.when().post("maps/api/place/add/json")
 		.then().log().all().assertThat().statusCode(200).body("scope",equalTo("APP"))

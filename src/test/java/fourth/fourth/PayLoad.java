@@ -10,14 +10,14 @@ public class PayLoad
 				"    \"lng\": 33.427362\r\n" + 
 				"  },\r\n" + 
 				"  \"accuracy\": 50,\r\n" + 
-				"  \"name\": \"Satya Book Store\",\r\n" + 
-				"  \"phone_number\": \"8913567825\",\r\n" + 
-				"  \"address\": \"Haideraband\",\r\n" + 
+				"  \"name\": \"Infogain corporation\",\r\n" + 
+				"  \"phone_number\": \"9315362800\",\r\n" + 
+				"  \"address\": \"Noida A/16, A/21 First street automation added\",\r\n" + 
 				"  \"types\": [\r\n" + 
-				"    \"Gali no 4\",\r\n" + 
-				"    \"Chulakana city\"\r\n" + 
+				"    \"Near sector 59 metro\",\r\n" + 
+				"    \"Walk distance\"\r\n" + 
 				"  ],\r\n" + 
-				"  \"website\": \"hbchyderabad.com\",\r\n" + 
+				"  \"website\": \"infogain.com\",\r\n" + 
 				"  \"language\": \"English\"\r\n" + 
 				"}";
 		
