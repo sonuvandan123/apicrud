@@ -7,7 +7,11 @@ import static io.restassured.RestAssured.given;
 body("scope",equalTo("APP")
 */
 import static org.hamcrest.Matchers.*;
+
+import org.testng.Assert;
+
 import io.restassured.RestAssured;
+import io.restassured.internal.common.assertion.Assertion;
 import io.restassured.path.json.JsonPath;
 public class AddPlace 
 {
@@ -42,15 +46,20 @@ public class AddPlace
 				"").when().log().all().put("/maps/api/place/update/json")
 		.then().log().all().assertThat().statusCode(200).body("msg" ,equalTo("Address successfully updated"));
 		
-		String getJsonResponse=given().relaxedHTTPSValidation().log().all().queryParam("place_id",placeid).queryParam("key","qaclick123")
+		String getJsonResponse=given().relaxedHTTPSValidation().log().all().queryParam("place_id",placeid).
+		 queryParam("key","qaclick123")
 		.when().get("/maps/api/place/get/json")
 		.then().assertThat().statusCode(200).extract().response().asString();
-		JsonPath getBody=new JsonPath(getJsonResponse);
-		String getAddress=getBody.getString("address");
-		if(getAddress.equalsIgnoreCase(updateAddress))
-		{
-			System.out.println("address matched");
-		}
-			
+		
+		JsonPath getAddressFieldFromJson=Reusablecode.rawToJson(getJsonResponse);
+		String getAddress=getAddressFieldFromJson.get("address");
+		//JsonPath getBody=new JsonPath(getJsonResponse);
+		//String getAddress=getBody.getString("address");
+		/*
+		 * if(getAddress.equalsIgnoreCase(updateAddress)) {
+		 * System.out.println("address matched"); }
+		 */
+		Assert.assertEquals(updateAddress, getAddress);
+		
 	}
 }
